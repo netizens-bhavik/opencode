@@ -78,6 +78,7 @@ import { AgentPlugin } from "./agent.js"
 import { CommandPlugin } from "./command.js"
 import { PlanPlugin } from "./plan.js"
 import { ModelsDevPlugin } from "./models-dev.js"
+// import { UltraPlugin } from "./ultra.js"
 import { MCPCodeModeExclusionPlugin } from "./mcp-codemode-exclusion.js"
 import { ProviderPlugins } from "./provider.js"
 import { WebSearchPlugins } from "./websearch/index.js"
@@ -243,9 +244,10 @@ const pre = [
   CommandPlugin.Plugin,
   SkillPlugin.Plugin,
   VcsHgPlugin.Plugin,
-  ...SystemPromptPlugin.Plugins,
   ModelsDevPlugin,
   ...ProviderPlugins,
+  // UltraPlugin.Plugin,
+  ...SystemPromptPlugin.Plugins,
   ...WebSearchPlugins,
   PatchTool.Plugin,
   EditTool.Plugin,
