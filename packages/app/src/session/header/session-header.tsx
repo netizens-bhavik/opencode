@@ -7,10 +7,9 @@ import { useSessionLayout } from "@/session/session-layout"
 import { reviewTooltipKeybind } from "@/shell/commands/tooltip-keybind"
 import { StatusPopover } from "@/shell/status/status-popover"
 import { TitlebarRight } from "@/shell/titlebar/right-slot"
-import type { createSessionBrowser } from "../browser/model"
 import { SessionHeaderActions, type SessionHeaderActionsState } from "./session-header-actions"
 
-export function SessionHeader(props: { browser: ReturnType<typeof createSessionBrowser> }) {
+export function SessionHeader() {
   const command = useCommand()
   const language = useLanguage()
   const settings = useSettings()
@@ -29,9 +28,6 @@ export function SessionHeader(props: { browser: ReturnType<typeof createSessionB
     reviewVisible: isDesktop(),
     reviewOpened: view().reviewPanel.opened(),
     onReviewToggle: () => view().reviewPanel.toggle(),
-    browser: props.browser.available()
-      ? { label: language.t("command.browser.toggle"), opened: props.browser.opened(), onToggle: props.browser.toggle }
-      : undefined,
   }))
 
   return (
